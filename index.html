@@ -3,32 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Construction</title>
+    <title>DataNube</title>
     <style>
         body {
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            text-align: center;
+            color: #333;
+            background-color: #f4f4f9;
         }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
         .logo {
-            max-width: 100%;
-            height: auto;
+            height: 40px;
         }
-        h1 {
-            font-size: 2em;
-            margin: 10px 0; /* Verklein de marge om het dichterbij te brengen */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Voeg schaduw toe voor strakker uiterlijk */
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0079bf;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #0079bf;
+            color: #fff;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: calc(100vh - 70px);
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            color: #0079bf;
+        }
+
+        .content p {
+            margin-top: 10px;
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
-    <img src="DataNube Logo.png" class="logo">
-    <h1>Coming Soon</h1>
+    <header>
+        <img src="/mnt/data/DataNube Logo.png" alt="DataNube Logo" class="logo">
+        <nav>
+            <a href="#about" onclick="showContent('about')">About</a>
+            <a href="#cloud" onclick="showContent('cloud')">Cloud</a>
+            <a href="#windows" onclick="showContent('windows')">Windows</a>
+            <a href="#contact" onclick="showContent('contact')">Contact</a>
+        </nav>
+    </header>
+
+    <div class="content" id="main-content">
+        <h1>Welcome to DataNube</h1>
+        <p>Your partner in cloud and IT solutions.</p>
+    </div>
+
+    <script>
+        const content = {
+            about: "We provide cloud services such as Microsoft 365, EntraID, Veeam, and more.",
+            cloud: "Our expertise lies in Microsoft 365 services, including setup, management, and support for all your cloud needs.",
+            windows: "We build on-premises servers and VMs in Hyper-V, creating complete environments integrated with Microsoft 365.",
+            contact: "Contact us: DataNube, Amsterdam, info@datanube.nl, 0612783456"
+        };
+
+        function showContent(section) {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `<h1>${section.charAt(0).toUpperCase() + section.slice(1)}</h1><p>${content[section]}</p>`;
+        }
+    </script>
 </body>
 </html>
